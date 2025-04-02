@@ -22,7 +22,7 @@ export default function App() {
           <h1 className="text-xl font-bold">devfinder</h1>
           <Toggle toggleTheme={toggleTheme} theme={theme} />
         </div>
-        <SearchBar setUserData={setUserData} />
+        <SearchBar setUserData={setUserData} theme={theme} />
         {userData && <UserCard user={userData} theme={theme} />} 
         {/* Pass theme as a prop to UserCard */}
       </div>
