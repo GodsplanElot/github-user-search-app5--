@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Link, Users, Briefcase, Folder } from "lucide-react";
+import { Calendar, MapPin, Link, Users, Briefcase } from "lucide-react";
 
 interface UserCardProps {
     user: any;
