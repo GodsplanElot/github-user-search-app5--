@@ -25,7 +25,7 @@ export default function UserCard({ user, theme }: UserCardProps) {
                         <h2 className="text-lg font-bold">{user.name || "No Name"}</h2>
                         <p className="flex items-center gap-2 text-sm"><Calendar className="w-4 h-4" /> {user.created_at ? new Date(user.created_at).toDateString() : <span className="text-gray-500">Not available</span>}</p>
                     </div>
-                    <p className={`${theme === "dark" ? "text-gray-400" : "text-gray-500"}`}>@{user.login}</p>
+                    <p className="text-[#0079FF]">@{user.login}</p>
                 </div>
             </div>
             
@@ -51,7 +51,21 @@ export default function UserCard({ user, theme }: UserCardProps) {
             {/* Additional Info */}
             <div className="grid grid-cols-2 gap-4 text-sm mt-4">
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4" /> {user.location || <span className="text-gray-500">Not available</span>}</p>
-                <p className="flex items-center gap-2"><Link className="w-4 h-4" /> {user.blog ? <a href={user.blog} target="_blank" rel="noopener noreferrer" className="underline">{user.blog}</a> : <span className="text-gray-500">Not available</span>}</p>
+                <p className="flex items-center gap-2">
+                    <Link className="w-4 h-4" />
+                    {user.blog ? (
+                        <a
+                            href={user.blog}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline text-[#0079FF] break-words w-full"
+                        >
+                            {user.blog}
+                        </a>
+                    ) : (
+                        <span className="text-gray-500">Not available</span>
+                    )}
+                </p>
                 <p className="flex items-center gap-2"><Users className="w-4 h-4" /> {user.twitter_username ? `@${user.twitter_username}` : <span className="text-gray-500">Not available</span>}</p>
                 <p className="flex items-center gap-2"><Briefcase className="w-4 h-4" /> {user.company || <span className="text-gray-500">Not available</span>}</p>
             </div>
