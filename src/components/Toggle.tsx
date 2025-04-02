@@ -9,10 +9,10 @@ interface ToggleProps {
 export default function Toggle({ theme, toggleTheme }: ToggleProps) {
   return (
     <button onClick={toggleTheme} className="flex items-center gap-2">
-      {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />} 
       <span className="uppercase text-sm font-semibold">
         {theme === "dark" ? "Light" : "Dark"}
       </span>
+      {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
     </button>
   );
 }
