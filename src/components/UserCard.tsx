@@ -33,7 +33,7 @@ export default function UserCard({ user, theme }: UserCardProps) {
             <p className="mt-4">{user.bio || "No bio available."}</p>
             
             {/* Stats */}
-            <div className="flex justify-between bg-gray-200 dark:bg-[#141D2F] p-3 rounded-lg text-center mt-4">
+            <div className={`flex justify-between p-3 rounded-lg text-center mt-4 ${theme === "dark" ? "bg-[#141D2F]" : "bg-[#F6F8FF]"}`}>
                 <div>
                     <p className="text-sm">Repos</p>
                     <p className="font-bold">{user.public_repos ?? <span className="text-gray-500">Not available</span>}</p>
