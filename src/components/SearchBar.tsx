@@ -46,12 +46,8 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
         theme === "dark" ? "bg-[#1E2A47] text-white" : "bg-white text-black"
       }`}
     >
-      {/* Search Icon */}
-      <Search
-        className={`w-5 h-5 mx-2 ${
-          theme === "dark" ? "text-gray-300" : "text-gray-500"
-        }`}
-      />
+      {/* Search Icon - Now Blue (#0079FF) */}
+      <Search className="w-5 h-5 mx-2 text-[#0079FF]" />
 
       <input
         type="text"
