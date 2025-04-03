@@ -59,7 +59,7 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyPress} // Add keypress listener
         placeholder={error ? "" : "Search GitHub username..."}
-        className="flex-grow px-3 py-2 border-none outline-none bg-transparent"
+        className="flex-grow px-3 py-2 border-none outline-none bg-transparent caret-[#0079FF]"
       />
 
       {/* Button & Error Container */}
