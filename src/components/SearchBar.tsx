@@ -12,7 +12,7 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
 
   const fetchUser = async () => {
     if (!query) {
-      setError("Please Enter Username"); // Show error if input is empty
+      setError("Enter Username"); // Show error if input is empty
       setUserData(null);
       return;
     }
@@ -61,12 +61,15 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
       />
 
       {/* Button & Error Container */}
-      <div className="relative flex items-center">
+      <div className="flex items-center space-x-4">
+        {/* Error Message - Now inline with button */}
         {error && (
-          <span className="absolute right-full mr-2 top-1/2 transform -translate-y-1/2 text-sm text-[#F74646]">
+          <span className="text-sm text-[#F74646] truncate max-w-[120px] pr-2 md:pr-4">
             {error}
           </span>
-        )}
+         )}
+    
+        {/* Search Button */}
         <button
           onClick={fetchUser}
           className={`px-4 py-2 rounded-md transition-colors duration-300 ${
