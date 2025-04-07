@@ -46,30 +46,29 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
         theme === "dark" ? "bg-[#1E2A47] text-white" : "bg-white text-black"
       }`}
     >
-      {/* Search Icon - Now Blue (#0079FF) */}
+      {/* Search Icon */}
       <Search className="w-5 h-5 mx-2 text-[#0079FF]" />
 
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        onKeyDown={handleKeyPress} // Add keypress listener
+        onKeyDown={handleKeyPress}
         placeholder={error ? "" : "Search GitHub username..."}
         className={`flex-grow px-3 py-2 border-none outline-none bg-transparent caret-[#0079FF] ${
-          theme === "dark" ? "text-white placeholder-white" : "text-[#4B6A9B] placeholder-[#4B6A9B]"
+          theme === "dark"
+            ? "text-white placeholder-white"
+            : "text-[#4B6A9B] placeholder-[#4B6A9B]"
         }`}
       />
 
-      {/* Button & Error Container */}
-      <div className="flex items-center space-x-4">
-        {/* Error Message - Now inline with button */}
+      {/* Button & Error Container */}⚡
+      <div className="flex items-center space-x-2 md:space-x-4">
         {error && (
-          <span className="text-sm text-[#F74646] truncate max-w-[120px] pr-2 md:pr-4">
+          <span className="text-sm text-[#F74646] max-w-[120px] pr-2 md:pr-4">
             {error}
           </span>
-         )}
-    
-        {/* Search Button */}
+        )}
         <button
           onClick={fetchUser}
           className={`px-4 py-2 rounded-md transition-colors duration-300 ${
