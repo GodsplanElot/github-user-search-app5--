@@ -62,7 +62,7 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
         }`}
       />
 
-      {/* Button & Error Container */}⚡
+      {/* Button & Error Container */}
       <div className="flex items-center space-x-2 md:space-x-4">
         {error && (
           <span className="text-sm text-[#F74646] max-w-[120px] pr-2 md:pr-4">
