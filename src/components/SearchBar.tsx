@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search } from "lucide-react"; // Import the search icon
+import { Search, Loader2 } from "lucide-react"; // Import search icon and loader spinner
 
 interface SearchBarProps {
   setUserData: (data: any) => void;
@@ -9,6 +9,7 @@ interface SearchBarProps {
 export default function SearchBar({ setUserData, theme }: SearchBarProps) {
   const [query, setQuery] = useState("");
   const [error, setError] = useState<string | null>(null); // Error state
+  const [loading, setLoading] = useState(false); // Loading state
 
   const fetchUser = async () => {
     if (!query) {
@@ -16,6 +17,7 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
       setUserData(null);
       return;
     }
+    setLoading(true); // Start loading
 
     try {
       const res = await fetch(`https://api.github.com/users/${query}`);
@@ -30,6 +32,8 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
       }
     } catch (error) {
       console.error("Error fetching user:", error);
+    } finally {
+      setLoading(false); // End loading regardless of outcome
     }
   };
 
@@ -77,7 +81,11 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
               : "bg-blue-500 hover:bg-[#60ABFF] text-white"
           }`}
         >
-          Search
+          {loading ? (
+            <Loader2 className="animate-spin w-5 h-5" />
+          ) : (
+            "Search"
+          )}
         </button>
       </div>
     </div>
