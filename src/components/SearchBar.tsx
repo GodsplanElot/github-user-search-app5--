@@ -67,9 +67,9 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
       />
 
       {/* Button & Error Container */}
-      <div className="flex items-center space-x-2 md:space-x-4">
+      <div className="relative flex-shrink-0">
         {error && (
-          <span className="text-sm text-[#F74646] max-w-[120px] pr-2 md:pr-4">
+          <span className="absolute -left-20 top-1/2 transform -translate-y-1/2 text-sm text-[#F74646] whitespace-nowrap">
             {error}
           </span>
         )}
@@ -81,11 +81,7 @@ export default function SearchBar({ setUserData, theme }: SearchBarProps) {
               : "bg-blue-500 hover:bg-[#60ABFF] text-white"
           }`}
         >
-          {loading ? (
-            <Loader2 className="animate-spin w-5 h-5" />
-          ) : (
-            "Search"
-          )}
+          {loading ? <Loader2 className="animate-spin w-5 h-5" /> : "Search"}
         </button>
       </div>
     </div>
